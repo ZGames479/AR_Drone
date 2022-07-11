@@ -8,24 +8,25 @@ public class Thruster : MonoBehaviour
     public FixedJoystick fixedJoystick;
     public Rigidbody rb;
 
-    public void FixedUpdate()
+    void Update()
     {
-        // Brandon Code
-        /*
-        Vector3 direction = Vector3.up * fixedJoystick.Vertical;
-        rb.AddForce(direction * speed * Time.fixedDeltaTime, ForceMode.VelocityChange);*/
+        rb = gameObject.GetComponent<Rigidbody>();
+    }
 
-        // Zac Code
-        Vector3 direction = Vector3.up * fixedJoystick.Vertical;
-        rb.MovePosition(direction * Time.deltaTime);
-
-        /*Vector3 moveDirection = Vector3.zero;
-        moveDirection.x = input.x;
-        moveDirection.z = input.y;
-        controller.Move(transform.TransformDirection(moveDirection) * speed * Time.deltaTime);
-        playerVelocity.y += gravity * Time.deltaTime;
-        if (isGrounded && playerVelocity.y < 0)
-            playerVelocity.y = -2f;
-        controller.Move(playerVelocity * Time.deltaTime);*/
+    public void moveUp()
+    {
+        //rb.transform.position += Vector3.up * 2f * Time.deltaTime;
+        //rb.velocity = Vector3.up * speed * Time.deltaTime;
+        rb.velocity = new Vector3(0, 1, 0);
+    }
+    public void moveDown()
+    {
+        //rb.transform.position += Vector3.up * -2f * Time.deltaTime;
+        //rb.velocity = Vector3.down * speed * Time.deltaTime;
+        rb.velocity = new Vector3(0, -1, 0);
+    }
+    public void noMove()
+    {
+        rb.velocity = Vector3.zero;
     }
 }
