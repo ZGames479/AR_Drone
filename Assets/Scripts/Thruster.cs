@@ -11,19 +11,16 @@ public class Thruster : MonoBehaviour
     void Update()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        rb.velocity = new Vector3(0, fixedJoystick.Vertical, 0); // for js
     }
 
     public void moveUp()
     {
-        //rb.transform.position += Vector3.up * 2f * Time.deltaTime;
-        //rb.velocity = Vector3.up * speed * Time.deltaTime;
-        rb.velocity = new Vector3(0, 1, 0);
+        rb.velocity = new Vector3(0, 1, 0); // works for button
     }
     public void moveDown()
     {
-        //rb.transform.position += Vector3.up * -2f * Time.deltaTime;
-        //rb.velocity = Vector3.down * speed * Time.deltaTime;
-        rb.velocity = new Vector3(0, -1, 0);
+        rb.velocity = new Vector3(0, -1, 0); // works for button
     }
     public void noMove()
     {
